@@ -47,9 +47,12 @@ features on NF-UNSW-NB15-v3 after the identifier columns are dropped.
 
 ## 3. Environment
 
-TensorFlow 2.16.2 with Keras 3.15.1, CPU only. The runs behind the paper were
-made on an Intel Core i9-7940X with 34 GB of memory under Windows 10; one
-training run takes roughly 15 to 20 minutes and stops after 68 to 103 epochs.
+TensorFlow 2.16.2 with Keras 3.15.1, CPU only. TensorFlow has shipped no
+native Windows GPU build since 2.10, so the two GTX 1080 Ti cards in this
+machine are not used; at this model size the CPU run is not the bottleneck
+in any case. The runs behind the paper were made on an Intel Core i9-7940X
+with 34 GB of memory under Windows 10; one training run takes roughly 15 to
+20 minutes and stops after 68 to 103 epochs.
 
 ```bash
 conda env create -f environment.yml
@@ -153,8 +156,8 @@ python -m src.p2_figures_v2 --base-tag full
 | Figure 5 — arity by degree | `p2_arity_v1` | `p2_fig5_arity.pdf` |
 | Figure 6 — class × degree heat map | `p2_figures_v2 --only 4` | `p2_fig4_class_degree_heatmap.pdf` |
 
-Figure numbering follows the paper; the script filenames keep the numbering
-they had while the figures were being produced.
+Figure and table numbering follows the paper; the script filenames keep the
+numbering they had while the figures and tables were being produced.
 
 ---
 
@@ -223,7 +226,7 @@ If you use this code, please cite the archived release:
 
 > E. Yang, C. Seo, "DCFNet-DS: exact polynomial-degree
 > decomposition for network intrusion detection," v1.0.0, Zenodo, 2026.
-> https://doi.org/10.5281/zenodo.21883692
+> https://doi.org/10.5281/zenodo.21883691
 
 The accompanying paper citation will be added once the DOI is assigned.
 
