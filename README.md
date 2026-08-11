@@ -219,10 +219,14 @@ outputs/
 
 ## 9. Citing
 
-⟨Insert the paper citation once the DOI is assigned. If you use the code,
-please cite both the paper and the archived release.⟩
+If you use this code, please cite the archived release:
+
+> E. Yang, C. Seo, "DCFNet-DS: exact polynomial-degree
+> decomposition for network intrusion detection," v1.0.0, Zenodo, 2026.
+> https://doi.org/10.5281/zenodo.21883692
+
+The accompanying paper citation will be added once the DOI is assigned.
 
 ## 10. License
 
-⟨Choose one — MIT and Apache-2.0 are both common for research code. Add the
-file as `LICENSE`.⟩
+MIT. See `LICENSE`.
