@@ -1,0 +1,2 @@
+Variant,Accuracy_mean,Precision_mean,Recall_mean,F1-score_mean,MCC_mean,PR-AUC(macro)_mean,PR-AUC(micro)_mean,Accuracy_std,Precision_std,Recall_std,F1-score_std,MCC_std,PR-AUC(macro)_std,PR-AUC(micro)_std,n_seeds
+m4,0.932,0.1581,0.1001,0.0966,0.0155,0.1984,0.9514,0.0,0.0039,0.0,0.0,0.0011,0.0089,0.0007,3
