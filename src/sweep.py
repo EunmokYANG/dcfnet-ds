@@ -60,18 +60,25 @@ def run_one(dataset, kind, val, a, base_tag):
 
     # --- 전처리 (필요한 조건만)
     if prep_needed(kind):
-        pre = ["-m", "src.preprocess", *ds, "--tag", tag]
-        if a.full:
-            pre.append("--full")
-        pre += ["--scaler", val if kind == "scaler" else a.scaler]
-        split = val if kind == "split" else a.split
-        if split == "temporal" and not C.DATASETS[dataset].get("time_col"):
-            split = "random"
-        pre += ["--split", split]
-        if kind == "amplify" and int(val) > 0:
-            pre += ["--amplify", str(val)]
-        if not sh(pre, f"preprocess {tag}"):
-            return None
+        # 시드만 늘리는 재실행이면 npz 를 다시 만들 필요가 없다.
+        # 전처리는 결정적이므로 결과는 같지만 대용량 재기록 시간을 아낀다.
+        npz = C.PROCESSED_DIR / f"{dataset}_{tag}.npz"
+        mj = npz.with_name(npz.stem + "_meta.json")
+        if a.skip_prep and npz.exists() and mj.exists():
+            print(f"  [전처리 생략] {npz.name} 재사용", flush=True)
+        else:
+            pre = ["-m", "src.preprocess", *ds, "--tag", tag]
+            if a.full:
+                pre.append("--full")
+            pre += ["--scaler", val if kind == "scaler" else a.scaler]
+            split = val if kind == "split" else a.split
+            if split == "temporal" and not C.DATASETS[dataset].get("time_col"):
+                split = "random"
+            pre += ["--split", split]
+            if kind == "amplify" and int(val) > 0:
+                pre += ["--amplify", str(val)]
+            if not sh(pre, f"preprocess {tag}"):
+                return None
     else:
         # 기존 npz 를 그대로 쓴다 (차수 스윕)
         src = C.PROCESSED_DIR / f"{dataset}_{base_tag}.npz" if base_tag \
@@ -89,6 +96,10 @@ def run_one(dataset, kind, val, a, base_tag):
     # --- 학습 + 평가 (다중 시드)
     ms = ["-m", "src.multiseed", *ds, "--tag", tag,
           "--variants", *a.variants, "--seeds", str(a.seeds)]
+    # 시드를 3 -> 10 으로 늘릴 때 이미 학습된 1~3 을 재학습하지 않도록
+    # --reuse 를 그대로 넘긴다. 체크포인트가 없는 시드만 새로 학습된다.
+    if a.reuse:
+        ms.append("--reuse")
     if kind == "degree":
         ms += ["--max-degree", str(val)]
     if not sh(ms, f"multiseed {tag}"):
@@ -166,6 +177,11 @@ def main():
                     help="기준 전처리 tag (차수 스윕이 재사용)")
     ap.add_argument("--scaler", default=C.SCALER, help="고정할 스케일러")
     ap.add_argument("--split", default="temporal", help="고정할 분할")
+    # 시드 확대 재실행 전용 인자 (IEEE Access R3 Comment 1 / R4 Comment 1)
+    ap.add_argument("--reuse", action="store_true",
+                    help="체크포인트가 있는 시드는 재학습하지 않는다")
+    ap.add_argument("--skip-prep", action="store_true",
+                    help="npz 와 meta 가 이미 있으면 전처리를 생략한다")
     a = ap.parse_args()
 
     names = list(C.DATASETS) if a.dataset == "all" else [a.dataset]
