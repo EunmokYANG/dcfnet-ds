@@ -1,0 +1,8 @@
+{
+  "paper": "p2",
+  "generated_at": "2026-08-24T16:06:22",
+  "git_commit": "unknown",
+  "sweep_csv": "outputs/tables/sweep_degree.csv",
+  "base_tag": "full",
+  "tag_pattern": "full_degree{K}"
+}

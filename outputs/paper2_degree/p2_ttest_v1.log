@@ -1,0 +1,53 @@
+p2_ttest_v1  2026-08-06 16:02:25.80
+
+==============================================================
+[1/4] CICIoT2023  m4 vs m4g   (gate)
+==============================================================
+file          : outputs\tables\seeds_ciciot2023_full.csv
+metric        : PR-AUC(macro)
+m4           n=5  mean=0.6672  sd=0.0010
+m4g          n=5  mean=0.6675  sd=0.0069
+delta         : +0.0004
+Welch t       : 0.1205
+p (raw)       : 0.909727
+p (Bonferroni x4): 1
+Cohen d       : 0.0762
+
+==============================================================
+[2/4] CICIoT2023  m4 vs m4m   (MLP branch)
+==============================================================
+file          : outputs\tables\seeds_ciciot2023_full.csv
+metric        : PR-AUC(macro)
+m4           n=5  mean=0.6672  sd=0.0010
+m4m          n=5  mean=0.6592  sd=0.0135
+delta         : -0.0080
+Welch t       : -1.3204
+p (raw)       : 0.256559
+p (Bonferroni x4): 1
+Cohen d       : -0.8351
+
+==============================================================
+[3/4] NF-UNSW-NB15-v3  m4 vs m4g   (gate)
+==============================================================
+file          : outputs\tables\seeds_nfunsw_full.csv
+metric        : PR-AUC(macro)
+m4           n=5  mean=0.4387  sd=0.0079
+m4g          n=5  mean=0.4458  sd=0.0066
+delta         : +0.0071
+Welch t       : 1.5361
+p (raw)       : 0.164182
+p (Bonferroni x4): 0.656729
+Cohen d       : 0.9715
+
+==============================================================
+[4/4] NF-UNSW-NB15-v3  m4 vs m4m   (MLP branch)
+==============================================================
+file          : outputs\tables\seeds_nfunsw_full.csv
+metric        : PR-AUC(macro)
+m4           n=5  mean=0.4387  sd=0.0079
+m4m          n=5  mean=0.4966  sd=0.0047
+delta         : +0.0580
+Welch t       : 14.1039
+p (raw)       : 3.94864e-06
+p (Bonferroni x4): 1.57946e-05
+Cohen d       : 8.9201
