@@ -1,0 +1,9 @@
+﻿dataset,model,n_scalers,n_seeds_min,n_seeds_max,span_pp,noise_pp,span_over_noise,best_scaler,best,worst_scaler,worst,n_not_converged
+ciciot2023,hgb,5,3,3,0.51,0.13,3.82,Z-score,0.8841,Signed-log,0.879,0
+ciciot2023,logreg,5,1,3,37.45,0.0,,SLog+MinMax,0.6299,No scaling,0.2555,0
+ciciot2023,m4,5,3,10,23.5,0.7,33.81,SLog+MinMax,0.6715,No scaling,0.4365,0
+ciciot2023,rf,5,3,3,0.48,0.17,2.86,Z-score,0.859,Min-Max,0.8542,0
+nfunsw,hgb,5,3,3,0.1,0.56,0.18,No scaling,0.5452,Signed-log,0.5442,0
+nfunsw,logreg,5,1,1,21.55,0.0,,Signed-log,0.3812,No scaling,0.1656,0
+nfunsw,m4,5,3,10,30.63,1.01,30.4,SLog+MinMax,0.4553,No scaling,0.1489,0
+nfunsw,rf,5,3,3,0.5,0.15,3.33,Signed-log,0.5495,Min-Max,0.5445,0
