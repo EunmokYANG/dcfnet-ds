@@ -56,8 +56,10 @@ recomputes the values of Tables II, III (including the encoding rows), V, IX and
 span excluding no scaling, and prints PASS/FAIL against the printed values (exit code 0 when
 all pass). `src/p1_verify_resub_v1.py` is the v2.0.1 check and covers Tables II, III and V only.
 
-`MANIFEST_sha256.txt` lists the SHA-256 of every file in the release, so the GitHub release,
-the Zenodo archive and the supplementary ZIP can be checked for identity.
+`MANIFEST_sha256.txt` lists the SHA-256 of every file in the release as stored in the Zenodo
+archive `dcfnet-ds_v2.1.0.zip`, which is byte-identical to the working copy that produced the
+paper. Git normalizes the line endings of text files (`.gitattributes`: `* text=auto`), so a
+clone of the GitHub repository can differ from the manifest in line endings only.
 
 ## Corrections to v2.0.1
 - The files `outputs/tables/seeds_nfunsw_catdrop_*.csv` and `history_nfunsw_catdrop_*_m4*.csv`
