@@ -1,5 +1,11 @@
 # DCFNet-DS
 
+> **Release v2.1.0 (IEEE Access Access-2026-52475, second resubmission of paper 1).**
+> Adds the ten-seed feature-encoding check (42 and 191 features), the resolution-versus-shape
+> attribution analysis, and corrects the 42-feature result files of v2.0.1 (see
+> [`REPRODUCE_paper1_resubmission.md`](REPRODUCE_paper1_resubmission.md), *Corrections*).
+> Quick check without retraining: `python -m src.p1_verify_resub_v2`.
+
 An intrusion detector whose class logits separate exactly into homogeneous
 polynomial terms, one per degree,
 
@@ -12,8 +18,8 @@ the code and the result tables for two companion papers that share it.
 
 | Paper | Question | Reproduce with |
 | --- | --- | --- |
-| **Feature Scaling Determines What Arithmetic-Combination Intrusion Detectors Can Learn: The Limits of Affine Normalization**<br>E. Yang, S. Choi, C. Seo. Submitted to *IEEE Access*. | What does the choice of input scaling decide, and what can it not change? | [`REPRODUCE_paper1_scaling.md`](REPRODUCE_paper1_scaling.md) |
-| **Polynomial-Degree Decomposition of a Network Intrusion Detector: Exactness and the Accuracy–Auditability Trade-off**<br>E. Yang, Y. Jeong, C. Seo. Submitted to *IEEE Access*. | How far up the degree hierarchy does detection reach, and what does exact decomposability cost? | [`REPRODUCE_paper2_degree.md`](REPRODUCE_paper2_degree.md) |
+| **Feature Scaling in Arithmetic-Combination Intrusion Detectors: Empirical Limits of Affine Normalization**<br>E. Yang, C. Seo. Under review, *IEEE Access*. | What does the choice of input scaling decide, and what can it not change? | [`REPRODUCE_paper1_resubmission.md`](REPRODUCE_paper1_resubmission.md) (current, v2.1.0)<br>[`REPRODUCE_paper1_scaling.md`](REPRODUCE_paper1_scaling.md) (original three-seed study, v1.0.0) |
+| **Exact Polynomial-Degree Decomposition of a Network Intrusion Detector: Higher-Order Structure and the Reliability of Degree-Level Explanations**<br>E. Yang, Y. Jeong, C. Seo. *IEEE Access*. | How far up the degree hierarchy does detection reach, and what does exact decomposability cost? | [`REPRODUCE_paper2_degree.md`](REPRODUCE_paper2_degree.md) |
 
 Each of the two files above is self-contained: datasets, environment, the
 commands in order, and where every table and figure of that paper comes from.
