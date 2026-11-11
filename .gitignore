@@ -48,3 +48,10 @@ backup_*/
 outputs/figures/
 outputs/dcfnet_ds_results.xlsx
 outputs/tables/*_backup.csv
+
+# ---------------------------------------------------------------- release staging
+# Local build folders and working notes for the GitHub web upload and Zenodo.
+_release_*/
+p1_release_map_v*.md
+log_*.txt
+dcfnet_code.zip
