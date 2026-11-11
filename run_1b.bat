@@ -12,7 +12,7 @@ echo ===== 1b 시작 (SEEDS=%SEEDS%) =====
 for %%D in (ciciot2023 nfunsw) do (
     for %%S in (minmax standard signedlog signedlog_minmax none) do (
         echo ----- %%D / %%S -----
-        python -m src.baselines --dataset %%D --tag full_scaler%%S --models rf --seeds %SEEDS% --seed-start 1
+        python -m src.baselines --dataset %%D --tag full_scaler%%S --models hgb rf --seeds %SEEDS% --seed-start 1
     )
 )
 
